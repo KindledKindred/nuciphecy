@@ -14,40 +14,16 @@ export type IBattle = {
 }
 
 export type IStatus = {
-  character: {
-    hp: number
-    maxHp: number
-    hpRegRate: number
-    mp: number
-    maxMp: number
-    manaRegRate: number
-    ward: number
-    maxWard: number
-    wardRegRate: number
-    criticalRate: number
-    criticalRatio: number
-    blockRate: number
-    blockRatio: number
-    evadeRate: number
-    evadeRatio: number
-  },
-  enemy: {
-    hp: number
-    maxHp: number
-    hpRegRate: number
-    mp: number
-    maxMp: number
-    manaRegRate: number
-    ward: number
-    maxWard: number
-    wardRegRate: number
-    criticalRate: number
-    criticalRatio: number
-    blockRate: number
-    blockRatio: number
-    evadeRate: number
-    evadeRatio: number
-  }
+  hp: number
+  maxHp: number
+  // hpRegRate: number 特化すると防御の仕組みが shield に似てしまうので warrior と mage の差別化が困難
+  currentArmor: number
+  baseArmor: number
+  currentEvade: number
+  additionalEvade: number
+  currentShield: number
+  maxShield: number
+  // shieldRegeneration: number 防御寄りにしすぎると容易にゲームを壊せる。かといって基礎値が低いと warrior と大差ない。不要かも
 }
 
 export type IStatusAction = {
@@ -56,64 +32,13 @@ export type IStatusAction = {
 }
 
 const BattleBase: React.FC<IBattle> = ({}) => {
-  /**
-   * ステータスのコンテキスト登録
-   */
-  const StatusContext = React.createContext({})
-  const initialStatus = {
-    character: {
-      hp: 50,
-      maxHp: 50,
-      hpRegRate: 2,
-      mp: 4,
-      maxMp: 4,
-      manaRegRate: 20,
-      ward: 0,
-      maxWard: 0,
-      wardRegRate: 20,
-      criticalRate: 14,
-      criticalRatio: 130,
-      blockRate: 0,
-      blockRatio: 75,
-      evadeRate: 0,
-      evadeRatio: 75,
-    },
-    enemy: {
-      hp: 50,
-      maxHp: 50,
-      hpRegRate: 2,
-      mp: 4,
-      maxMp: 4,
-      manaRegRate: 20,
-      ward: 0,
-      maxWard: 0,
-      wardRegRate: 20,
-      criticalRate: 0,
-      criticalRatio: 130,
-      blockRate: 0,
-      blockRatio: 75,
-      evadeRate: 0,
-      evadeRatio: 75,
-    },
-  }
-  const reducer = (status: IStatus, action: IStatusAction): IStatus => {
-    switch (action.type) {
-      case 'UPDATE':
-        return action.payload
-      default:
-        return status
-    }
-  } 
-  const [status, dispatch] = React.useReducer(reducer, initialStatus)
 
   return (
-    <StatusContext.Provider value={{status, dispatch}}>
-      <div className='Battle-base'>
-        <Enemy />
-        <Skill />
-        <Ability />
-      </div>
-    </StatusContext.Provider>
+    <div className='Battle-base'>
+      <Enemy />
+      <Skill />
+      <Ability />
+    </div>
   )
 }
 
