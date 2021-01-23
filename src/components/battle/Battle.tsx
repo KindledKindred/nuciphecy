@@ -16,14 +16,13 @@ export type IBattle = {
 export type IStatus = {
   hp: number
   maxHp: number
-  // hpRegRate: number 特化すると防御の仕組みが shield に似てしまうので warrior と mage の差別化が困難
-  currentArmor: number
-  baseArmor: number
+  hpRegRate: number
+  // 回避：ダメージを受けるとその分だけ消費して同じ値だけ軽減。持続しない。
   currentEvade: number
-  additionalEvade: number
+  limitEvade: number
+  // シールド：ダメージを受けるとその分だけ消費して同じ値だけ軽減。永続。
   currentShield: number
   maxShield: number
-  // shieldRegeneration: number 防御寄りにしすぎると容易にゲームを壊せる。かといって基礎値が低いと warrior と大差ない。不要かも
 }
 
 export type IStatusAction = {

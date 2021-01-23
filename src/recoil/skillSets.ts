@@ -1,50 +1,32 @@
 import Recoil from 'recoil'
 
 export type ISkill = {
-  type: 'primary' | 'secondary' | 'ultimate'
-  potency: number
-  evade: number
-  shield: number
-  coolDown: number
-  mpCost: number
-  onUse: (potency: number, block: number) => {}
+  children?: never
+  name: string
+  rarity: number
+  cost: number
+  icon: {
+    src: string
+    alt: string
+  }
+  attack?: number
+  block?: number
+  description?: string
+  consumable?: 'vanished' | 'recycle'
+  onUse: () => {}
 }
 
-export const currentPrimarySkill = Recoil.atom({
-  key: 'currentPrimarySkill',
-  default: {
-    type: 'primary',
-    potency: 0,
-    evade: 0,
-    shield: 0,
-    coolDown: 0,
-    mpCost: 0,
-    onUse: () => {}
-  }
-})
 
-export const currentSecondarySkill = Recoil.atom({
-  key: 'currentSecondarySkill',
+export const skill = Recoil.atom({
+  key: 'skill',
   default: {
-    type: 'secondary',
-    potency: 0,
-    evade: 0,
-    shield: 0,
-    coolDown: 0,
-    mpCost: 0,
-    onUse: () => {}
-  }
-})
-
-export const currentUltimateSkill = Recoil.atom({
-  key: 'currentUltimateSkill',
-  default: {
-    type: 'ultimate',
-    potency: 0,
-    evade: 0,
-    shield: 0,
-    coolDown: 0,
-    mpCost: 0,
+    name: '',
+    rarity: 0,
+    cost: 1,
+    icon: {
+      src: '',
+      alt: ''
+    },
     onUse: () => {}
   }
 })
