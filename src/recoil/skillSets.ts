@@ -1,32 +1,9 @@
-import Recoil from 'recoil'
+import * as Recoil from 'recoil';
+import {ISkill, ISkillSets} from 'interface/skill';
 
-export type ISkill = {
-  children?: never
-  name: string
-  rarity: number
-  cost: number
-  icon: {
-    src: string
-    alt: string
-  }
-  attack?: number
-  block?: number
-  description?: string
-  consumable?: 'vanished' | 'recycle'
-  onUse: () => {}
-}
+const initialSKillSets: ISkillSets = [];
 
-
-export const skill = Recoil.atom({
-  key: 'skill',
-  default: {
-    name: '',
-    rarity: 0,
-    cost: 1,
-    icon: {
-      src: '',
-      alt: ''
-    },
-    onUse: () => {}
-  }
-})
+export const skillSets: Recoil.RecoilState<ISkillSets> = Recoil.atom({
+  key: 'skillSets',
+  default: initialSKillSets,
+});

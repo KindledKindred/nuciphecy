@@ -2,22 +2,21 @@
  * @file
  */
 
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export type ISkillSettingModal = {
-  children?: never
-}
+  children?: never;
+};
 
 const SkillSettingModalBase: React.FC<ISkillSettingModal> = ({}) => {
   return (
-    <div className='SkillSettingModal-base'>
-      <div className=''></div>
+    <div className="SkillSettingModal-base">
+      <div className=""></div>
     </div>
-  )
-}
+  );
+};
 
-const StyledComponent = styled(SkillSettingModalBase)`
-`
+const StyledComponent = styled(SkillSettingModalBase)``;
 
-export const SkillSettingModal = StyledComponent
+export const SkillSettingModal = StyledComponent;

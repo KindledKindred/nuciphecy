@@ -4,28 +4,26 @@
  * 1. 音量
  * 2. フォントサイズ
  * 3. 詳細設定
- * 
+ *
  * 詳細設定
- * 1. 
+ * 1.
  */
 
-
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export type IConfig = {
-  children?: never
-}
+  children?: never;
+};
 
 const ConfigBase: React.FC<IConfig> = ({}) => {
   return (
-    <div className='Config-base'>
-      <div className=''></div>
+    <div className="Config-base">
+      <div className=""></div>
     </div>
-  )
-} 
+  );
+};
 
-const StyledComponent = styled(ConfigBase)`
-`
+const StyledComponent = styled(ConfigBase)``;
 
-export const Config = StyledComponent
+export const Config = StyledComponent;

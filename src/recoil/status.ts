@@ -1,47 +1,51 @@
-import Recoil from 'recoil'
+import * as Recoil from 'recoil';
+import {IStatus} from 'interface/status';
 
 /**
  * base status
  */
-export const characterStatus = Recoil.atom({
+export const characterStatus: Recoil.RecoilState<IStatus> = Recoil.atom({
   key: 'characterStatus',
   default: {
+    name: '',
     maxHp: 24,
-    hpRegeneration: 0,
-    additionalEvasion: 0,
-    maxShield: 0,
-    shieldRegeneration: 2,
-    /** skill resource */
-    coolDownReduction: 1,
-    mpRegeneration: 2
-  }
-})
+    hpReg: 0,
+    maxMp: 3, // ゲーム中最大は6
+    mpReg: 0, // ゲーム中最大は3
+    evadeReg: 0,
+    additionalBuffTurn: 0,
+    additionalDebuffTurn: 0,
+  },
+});
 
-export const enemyStatus = Recoil.atom({
+export const enemyStatus: Recoil.RecoilState<IStatus> = Recoil.atom({
   key: 'enemyStatus',
   default: {
-    maxHp: 24,
-    hpRegeneration: 0,
-    additionalEvasion: 0,
-    maxShield: 0,
-    shieldRegeneration: 2
-  }
-})
+    name: '',
+    maxHp: 30,
+    hpReg: 0,
+    maxMp: 6,
+    mpReg: 1,
+    evadeReg: 0,
+    additionalBuffTurn: 0,
+    additionalDebuffTurn: 0,
+  },
+});
 
 /**
  * current status
  */
-export const characterHp = Recoil.atom({
+export const characterHp: Recoil.RecoilState<number> = Recoil.atom({
   key: 'characterHp',
-  default: 10
-})
+  default: 10,
+});
 
-export const characterMp = Recoil.atom({
+export const characterMp: Recoil.RecoilState<number> = Recoil.atom({
   key: 'characterMp',
-  default: 0
-})
+  default: 2,
+});
 
-export const enemyHp = Recoil.atom({
+export const enemyHp: Recoil.RecoilState<number> = Recoil.atom({
   key: 'enemyHp',
-  default: 0
-})
+  default: 30,
+});

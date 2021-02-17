@@ -2,22 +2,21 @@
  * @file
  */
 
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export type IFoo = {
-  children?: never
-}
+  children?: never;
+};
 
 const FooBase: React.FC<IFoo> = ({}) => {
   return (
-    <div className='foo-base'>
-      <div className=''></div>
+    <div className="foo-base">
+      <div className=""></div>
     </div>
-  )
-}
+  );
+};
 
-const StyledComponent = styled(FooBase)`
-`
+const StyledComponent = styled(FooBase)``;
 
-export const Foo = StyledComponent
+export const Foo = StyledComponent;
