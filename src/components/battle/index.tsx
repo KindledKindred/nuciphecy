@@ -1,12 +1,6 @@
-/**
- * @file 各種ステータスをコンテキストに登録，実際の処理は子コンポーネントで行う
- */
-
 import React from 'react';
 import styled from 'styled-components';
 import {Enemy} from './Enemy';
-import {Skill} from './Skill/Skill';
-import {Ability} from './Ability';
 
 export type IBattle = {
   children?: never;
@@ -34,8 +28,7 @@ const BattleBase: React.FC<IBattle> = ({}) => {
   return (
     <div className="Battle-base">
       <Enemy />
-      <Skill />
-      <Ability />
+      {/**<Command />*/}
     </div>
   );
 };

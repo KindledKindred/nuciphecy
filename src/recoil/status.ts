@@ -1,5 +1,7 @@
 import * as Recoil from 'recoil';
 import {IStatus} from 'interface/status';
+import {IBuff} from 'interface/buff';
+import {IDebuff} from 'interface/debuff';
 
 /**
  * base status
@@ -35,17 +37,84 @@ export const enemyStatus: Recoil.RecoilState<IStatus> = Recoil.atom({
 /**
  * current status
  */
-export const characterHp: Recoil.RecoilState<number> = Recoil.atom({
-  key: 'characterHp',
+export const characterCurrentHp: Recoil.RecoilState<number> = Recoil.atom({
+  key: 'characterCurrentHp',
   default: 10,
 });
 
-export const characterMp: Recoil.RecoilState<number> = Recoil.atom({
-  key: 'characterMp',
+export const characterCurrentMp: Recoil.RecoilState<number> = Recoil.atom({
+  key: 'characterCurrentMp',
   default: 2,
 });
 
-export const enemyHp: Recoil.RecoilState<number> = Recoil.atom({
-  key: 'enemyHp',
+export const characterCurrentEvasion: Recoil.RecoilState<number> = Recoil.atom({
+  key: 'characterCurrentEvasion',
+  default: 0,
+});
+
+export const characterCurrentBuff: Recoil.RecoilState<IBuff> = Recoil.atom({
+  key: 'characterCurrentBuff',
+  default: {
+    name: '',
+    remainedTurn: 0,
+    icon: {
+      src: '',
+      alt: '',
+    },
+    description: '',
+  },
+});
+
+export const characterCurrentDebuff: Recoil.RecoilState<IDebuff> = Recoil.atom({
+  key: 'characterCurrentDebuff',
+  default: {
+    name: '',
+    remainedTurn: 0,
+    icon: {
+      src: '',
+      alt: '',
+    },
+    description: '',
+  },
+});
+
+export const enemyCurrentHp: Recoil.RecoilState<number> = Recoil.atom({
+  key: 'enemyCurrentHp',
   default: 30,
+});
+
+export const enemyCurrentMp: Recoil.RecoilState<number> = Recoil.atom({
+  key: 'enemyCurrentMp',
+  default: 2,
+});
+
+export const enemyCurrentEvasion: Recoil.RecoilState<number> = Recoil.atom({
+  key: 'enemyCurrentEvasion',
+  default: 0,
+});
+
+export const enemyCurrentBuff: Recoil.RecoilState<IBuff> = Recoil.atom({
+  key: 'enemyCurrentBuff',
+  default: {
+    name: '',
+    remainedTurn: 0,
+    icon: {
+      src: '',
+      alt: '',
+    },
+    description: '',
+  },
+});
+
+export const enemyCurrentDebuff: Recoil.RecoilState<IDebuff> = Recoil.atom({
+  key: 'enemyCurrentDebuff',
+  default: {
+    name: '',
+    remainedTurn: 0,
+    icon: {
+      src: '',
+      alt: '',
+    },
+    description: '',
+  },
 });

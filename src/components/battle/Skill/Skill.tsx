@@ -11,8 +11,8 @@ export const Skill: React.VFC<ISkill> = ({
   rarity,
   cost,
   icon,
-  attack,
-  block,
+  attacks,
+  evasion,
   description,
   onUse,
 }) => {
@@ -28,8 +28,19 @@ export const Skill: React.VFC<ISkill> = ({
       <Name>{name}</Name>
       <Icon src={icon.src} alt={icon.alt} />
       <Description>
-        {attack && <PotencyDescription>{attack}</PotencyDescription>}
-        {block && <PotencyDescription>{block}</PotencyDescription>}
+        {attacks && (
+          <p>
+            威力
+            <AttacksSpan>
+              {attacks[0]} x {attacks.length}
+            </AttacksSpan>
+          </p>
+        )}
+        {evasion && (
+          <p>
+            回避<EvasionSpan>{evasion}</EvasionSpan>
+          </p>
+        )}
         {description && (
           <AdditionalDescription>{description}</AdditionalDescription>
         )}
@@ -39,30 +50,31 @@ export const Skill: React.VFC<ISkill> = ({
 };
 
 const SkillWrapper = styled.div<{rarity: number}>`
-  border: 1px solid ${props => getRarityColor(props.rarity)}
-`
+  border: 1px solid ${props => getRarityColor(props.rarity)};
+`;
 const Cost = styled.p``;
 const Name = styled.h2``;
 const Icon = styled.img``;
-const Description = styled.div``;
-const PotencyDescription = styled.p``;
+const Description = styled.p``;
+const AttacksSpan = styled.span``;
+const EvasionSpan = styled.span``;
 const AdditionalDescription = styled.p``;
 
 const getRarityColor = (rarity: number) => {
   switch (rarity) {
-    case (1):
-      return 'white'
-    case (2):
-      return 'blue'
-    case (3):
-      return 'yellow'
-    case (4):
-      return 'orange'
-    case (5):
-      return 'purple'
-    case (6):
-      return '#00FFFF'
+    case 1:
+      return 'white';
+    case 2:
+      return 'blue';
+    case 3:
+      return 'yellow';
+    case 4:
+      return 'orange';
+    case 5:
+      return 'purple';
+    case 6:
+      return '#00FFFF';
     default:
-      return 'white'
+      return 'white';
   }
-}
+};

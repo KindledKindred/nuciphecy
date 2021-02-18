@@ -5,11 +5,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export type ISkillSettingModal = {
-  children?: never;
-};
-
-const SkillSettingModalBase: React.FC<ISkillSettingModal> = ({}) => {
+const SkillSettingModalBase: React.VFC = () => {
   return (
     <div className="SkillSettingModal-base">
       <div className=""></div>
