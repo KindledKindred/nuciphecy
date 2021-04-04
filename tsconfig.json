@@ -19,7 +19,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": "src",
     "rootDir": ".",
     "outDir": "build"
@@ -30,6 +30,6 @@
     "src/**/*.d.ts",
     "test/**/*.ts",
     "test/**/*.tsx",
-    "test/**/*.d.ts",
+    "test/**/*.d.ts"
   ]
 }
